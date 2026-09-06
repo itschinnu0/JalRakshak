@@ -1,0 +1,3 @@
+# UI SPEC
+
+Premium environmental-tech + futuristic monitoring. Light/dark themes, custom design tokens, adaptive compact/medium/expanded layouts, custom hybrid navigation. Home: safety hero, outlet, pH/turbidity/TDS/temperature cards, treatment summary, recent event, DEMO MODE. Purification: interactive Raw -> PP/Sand -> Calcite/Limestone -> Aeration -> Fe/Mn Media -> Appropriate Adsorption -> UF -> UV-C -> Outlet Monitoring -> Solenoid. Insights: Vico with parameter switch, touch tooltip, threshold visualization, event markers and timeline. System: controller placeholder, sensor health, power, local/offline status, outlet, DEMO MODE and limitations. Moderate high-impact motion; SoundPool/haptics only for meaningful events. English + Roman Hinglish.

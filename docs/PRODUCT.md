@@ -1,0 +1,3 @@
+# PRODUCT
+
+JalRakshak is a smart water purification and quality monitoring concept for rural and mining-affected areas. Current Android scope is a deterministic local simulation. Monitored parameters: pH, turbidity, TDS/EC-related dissolved-solids indication and temperature. These do not identify individual heavy metals, arsenic, fluoride or bacteria; lab validation is required before potable-water claims. Treatment: Raw water -> PP/Sand -> Calcite/Limestone -> Aeration -> Fe/Mn Media -> Appropriate Adsorption -> UF -> UV-C -> outlet monitoring -> solenoid. Prototype BOM target approximately ₹8,000; solar is 10 W; SIM800L is not in the final BOM.
