@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.emptyFlow
 class Esp32WaterDataSource : WaterDataSource {
     // To be implemented in later phases with actual BLE payload parsing
     override val waterSnapshotFlow: Flow<WaterSnapshot> = emptyFlow()
+    override val historyFlow: Flow<List<WaterSnapshot>> = emptyFlow()
 
     override suspend fun setOutletState(isOpen: Boolean) {
         // Implementation for BLE override (e.g., transmitting payload)

@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
 import com.jalrakshak.app.feature.home.HomeScreen
+import com.jalrakshak.app.feature.insights.InsightsScreen
 import com.jalrakshak.app.feature.purification.PurificationScreen
 
 /**
@@ -28,7 +29,7 @@ fun JalRakshakNavGraph(
             when (route) {
                 is Route.Home -> NavEntry(route) { HomeScreen() }
                 is Route.Purification -> NavEntry(route) { PurificationScreen() }
-                is Route.Insights -> NavEntry(route) { PlaceholderScreen("Insights Screen Stub") }
+                is Route.Insights -> NavEntry(route) { InsightsScreen() }
                 is Route.System -> NavEntry(route) { PlaceholderScreen("System Screen Stub") }
                 else -> error("Unknown route: $route")
             }
