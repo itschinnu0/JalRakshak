@@ -67,4 +67,43 @@
     <string name="demo_scenario_mining">Acidic Mining</string>
     <string name="demo_scenario_turbidity">High Turbidity</string>
     <string name="demo_scenario_fault">Sensor Fault</string>
+
+    <!-- Purification Screen Strings -->
+    <string name="purification_title">Multi-Barrier Shuddhikaran Pipeline</string>
+    <string name="purification_subtitle">10-Stage Treatment &amp; Monitoring Sequence</string>
+    <string name="purification_select_stage_hint">Kisi bhi stage par tap karke uski details dekhein.</string>
+    <string name="purification_stage_detail_title">Stage Details aur Jankari</string>
+    <string name="purification_stage_step_label">STAGE %1$d OF 10</string>
+    <string name="purification_pipeline_status">Pipeline Status</string>
+
+    <!-- 10 Stages -->
+    <string name="stage_1_name">1. Raw Source Water</string>
+    <string name="stage_1_desc">Aana wala kacha pani zameen ya taalab se jisme mitti aur variable pH hota hai.</string>
+
+    <string name="stage_2_name">2. PP / Sand Pre-Filter</string>
+    <string name="stage_2_desc">Physical filter jo mitti, reta aur suspended solids ko rokata hai (&gt;5 microns).</string>
+
+    <string name="stage_3_name">3. Calcite / Limestone Filter</string>
+    <string name="stage_3_desc">Tezaabi (acidic) pH ko normal range (6.5–8.5) me lane ke liye calcite dissolve karta hai.</string>
+
+    <string name="stage_4_name">4. Aeration &amp; Oxidation</string>
+    <string name="stage_4_desc">Pani me hawa mila kar ghule hue Iron aur Manganese ko filterable solid banata hai.</string>
+
+    <string name="stage_5_name">5. Fe / Mn Media Bed</string>
+    <string name="stage_5_desc">Special media bed jo oxidized Iron aur Manganese ke particles ko pakadta hai.</string>
+
+    <string name="stage_6_name">6. Appropriate Adsorption Media</string>
+    <string name="stage_6_desc">Organic gundagi, swad aur badboo dur karne ke liye adsorption stage.</string>
+
+    <string name="stage_7_name">7. Ultrafiltration (UF) Membrane</string>
+    <string name="stage_7_desc">0.01 micron membrane jo बारीक turbidity aur particulate impurities rokti hai.</string>
+
+    <string name="stage_8_name">8. UV-C Disinfection Chamber</string>
+    <string name="stage_8_desc">254nm Ultraviolet light jo bacteria aur virus ko bina kisi chemical ke khatam karti hai.</string>
+
+    <string name="stage_9_name">9. Outlet Monitoring Sensors</string>
+    <string name="stage_9_desc">Sensors jo bahar nikalne se pehle pH, Turbidity, TDS aur Temp maapte hain.</string>
+
+    <string name="stage_10_name">10. Controlled Solenoid Valve</string>
+    <string name="stage_10_desc">Smart valve jo pani surakshit hone par khulta hai aur asurakshit hone par turant BAND ho jata hai.</string>
 </resources>

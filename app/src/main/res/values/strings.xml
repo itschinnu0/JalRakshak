@@ -67,4 +67,43 @@
     <string name="demo_scenario_mining">Acidic Mining</string>
     <string name="demo_scenario_turbidity">High Turbidity</string>
     <string name="demo_scenario_fault">Sensor Fault</string>
+
+    <!-- Purification Screen Strings -->
+    <string name="purification_title">Multi-Barrier Treatment Pipeline</string>
+    <string name="purification_subtitle">10-Stage Treatment &amp; Monitoring Train</string>
+    <string name="purification_select_stage_hint">Tap any treatment stage below to inspect its mechanism and operational role.</string>
+    <string name="purification_stage_detail_title">Stage Details &amp; Mechanism</string>
+    <string name="purification_stage_step_label">STAGE %1$d OF 10</string>
+    <string name="purification_pipeline_status">Pipeline Status</string>
+
+    <!-- 10 Stages -->
+    <string name="stage_1_name">1. Raw Source Water</string>
+    <string name="stage_1_desc">Untreated intake water from rural surface or groundwater sources containing physical turbidity and variable pH.</string>
+
+    <string name="stage_2_name">2. PP / Sand Pre-Filter</string>
+    <string name="stage_2_desc">Physical particulate barrier capturing coarse sediment, suspended solids, and silt (&gt;5 microns).</string>
+
+    <string name="stage_3_name">3. Calcite / Limestone Filter</string>
+    <string name="stage_3_desc">Dissolves mineral calcite to raise acidic pH toward neutral operating range (pH 6.5–8.5) and reduce pipe corrosion.</string>
+
+    <string name="stage_4_name">4. Aeration &amp; Oxidation</string>
+    <string name="stage_4_desc">Injects air to oxidize dissolved ferrous iron and manganese into insoluble precipitates for downstream filtering.</string>
+
+    <string name="stage_5_name">5. Fe / Mn Media Bed</string>
+    <string name="stage_5_desc">Catalytic media bed (Birm/MNO2) that traps precipitated iron and manganese particles.</string>
+
+    <string name="stage_6_name">6. Appropriate Adsorption Media</string>
+    <string name="stage_6_desc">Targeted adsorption bed for organic compounds, taste, and odor reduction. (Note: Specific heavy metals require specialized media).</string>
+
+    <string name="stage_7_name">7. Ultrafiltration (UF) Membrane</string>
+    <string name="stage_7_desc">0.01 micron hollow-fiber membrane removing colloidal particles, fine turbidity, and macro-pathogens.</string>
+
+    <string name="stage_8_name">8. UV-C Disinfection Chamber</string>
+    <string name="stage_8_desc">Germicidal 254nm ultraviolet radiation inactivating bacterial and viral DNA without chemical additives.</string>
+
+    <string name="stage_9_name">9. Outlet Monitoring Sensors</string>
+    <string name="stage_9_desc">Onboard sensor array continuously measuring pH, Turbidity, TDS, and Temperature prior to release.</string>
+
+    <string name="stage_10_name">10. Controlled Solenoid Valve</string>
+    <string name="stage_10_desc">Fail-safe electromechanical valve that opens for safe water and locks closed instantly during unsafe or fault states.</string>
 </resources>
