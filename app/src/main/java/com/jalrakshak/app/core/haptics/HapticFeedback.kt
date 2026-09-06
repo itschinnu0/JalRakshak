@@ -1,8 +1,8 @@
 package com.jalrakshak.app.core.haptics
 
 /**
- * Placeholder for Compose/Android haptic feedback abstractions.
+ * Interface for Compose/Android haptic feedback abstractions.
  */
-interface HapticFeedback {
+interface JalRakshakHapticFeedback {
     fun performWarningHaptic()
 }
