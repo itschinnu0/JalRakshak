@@ -118,4 +118,26 @@
     <string name="insights_summary_title">Parameter Trend aur Range Jankari</string>
     <string name="insights_timeline_title">Operational Event Timeline</string>
     <string name="insights_disclaimer">Note: Analytics pH/TDS/Turbidity/Temp ka simulation trend dikhata hai. Heavy metals ke liye lab test zaroori hai.</string>
+
+    <!-- System Screen Strings -->
+    <string name="system_title">System Health &amp; Controller</string>
+    <string name="system_subtitle">Hardware Telemetry, Power &amp; Local Status</string>
+    <string name="system_card_power_title">Power &amp; Hardware Spec</string>
+    <string name="system_power_desc">10W Solar Panel + 12V LiFePO4 Battery</string>
+    <string name="system_card_controller_title">Controller &amp; Connectivity</string>
+    <string name="system_controller_mode">Mode: Local Simulation Engine (100% Offline)</string>
+    <string name="system_controller_future_ble">Target Hardware: ESP32 MCU (BLE Protocol Ready)</string>
+    <string name="system_sensor_health_title">Sensor Diagnostics</string>
+    <string name="system_sensor_ph_status">pH Glass Electrode Sensor</string>
+    <string name="system_sensor_turbidity_status">Turbidity Optical Sensor</string>
+    <string name="system_sensor_tds_status">TDS Conductivity Sensor</string>
+    <string name="system_sensor_temp_status">NTC Temperature Probe</string>
+    <string name="system_sensor_status_online">ONLINE / HEALTHY</string>
+    <string name="system_sensor_status_fault">FAULT / DISCONNECTED</string>
+    <string name="system_limitations_title">System Limitations &amp; Disclaimers</string>
+    <string name="system_limitations_desc">Target Prototype BOM ~₹8,000. Onboard sensors track physical proxy metrics (pH/TDS/Turbidity/Temp). Heavy metals, arsenic, fluoride, and pathogens require specialized media &amp; laboratory validation.</string>
+    <string name="system_alert_active_title">Active Operational Alert</string>
+    <string name="system_alert_what">WHAT HAPPENED: %1$s</string>
+    <string name="system_alert_why">WHY IT MATTERS: %1$s</string>
+    <string name="system_alert_action">ACTION TAKEN: %1$s</string>
 </resources>
