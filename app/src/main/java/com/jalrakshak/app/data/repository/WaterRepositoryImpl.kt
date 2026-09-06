@@ -9,6 +9,7 @@ class WaterRepositoryImpl(
     private val dataSource: WaterDataSource
 ) : WaterRepository {
     override val currentSnapshot: Flow<WaterSnapshot> = dataSource.waterSnapshotFlow
+    override val snapshotHistory: Flow<List<WaterSnapshot>> = dataSource.historyFlow
 
     override suspend fun overrideOutlet(open: Boolean) {
         dataSource.setOutletState(open)
