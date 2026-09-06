@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
+import com.jalrakshak.app.feature.home.HomeScreen
 
 /**
  * Navigation 3 foundation for the JalRakshak app shell.
@@ -24,7 +25,7 @@ fun JalRakshakNavGraph(
         modifier = modifier.fillMaxSize(),
         entryProvider = { route ->
             when (route) {
-                is Route.Home -> NavEntry(route) { PlaceholderScreen("Home Screen Stub") }
+                is Route.Home -> NavEntry(route) { HomeScreen() }
                 is Route.Purification -> NavEntry(route) { PlaceholderScreen("Purification Screen Stub") }
                 is Route.Insights -> NavEntry(route) { PlaceholderScreen("Insights Screen Stub") }
                 is Route.System -> NavEntry(route) { PlaceholderScreen("System Screen Stub") }
