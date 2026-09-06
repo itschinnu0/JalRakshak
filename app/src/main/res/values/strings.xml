@@ -7,4 +7,64 @@
     <string name="nav_system">System</string>
 
     <string name="demo_mode_active">DEMO MODE ACTIVE • NOT REAL DATA</string>
+
+    <!-- Safety States -->
+    <string name="safety_state_normal">WATER SAFE FOR USE</string>
+    <string name="safety_state_normal_desc">All measured parameters (pH, Turbidity, TDS, Temp) are within normal operating thresholds.</string>
+
+    <string name="safety_state_warning">ATTENTION REQUIRED</string>
+    <string name="safety_state_warning_desc">Water parameters show slight elevation. System monitoring and filtration active.</string>
+
+    <string name="safety_state_unsafe">UNSAFE WATER DETECTED</string>
+    <string name="safety_state_unsafe_desc">Operating safety threshold exceeded! Outlet solenoid locked closed to prevent exposure.</string>
+
+    <string name="safety_state_fault">SENSOR FAULT / MISSING</string>
+    <string name="safety_state_fault_desc">Critical sensor data missing or invalid. System failed safe: Outlet locked closed.</string>
+
+    <string name="safety_state_offline">SYSTEM OFFLINE</string>
+    <string name="safety_state_offline_desc">Communication or power loss. Hardware solenoid engaged in default-closed state.</string>
+
+    <!-- Outlet -->
+    <string name="outlet_label">Solenoid Valve Outlet</string>
+    <string name="outlet_status_open">OUTLET OPEN</string>
+    <string name="outlet_status_closed">OUTLET LOCKED CLOSED</string>
+    <string name="outlet_action_close">LOCK OUTLET</string>
+    <string name="outlet_action_open">OPEN OUTLET</string>
+    <string name="outlet_locked_safety_reason">Outlet cannot be opened while in UNSAFE or FAULT state.</string>
+
+    <!-- Parameters -->
+    <string name="param_ph_title">pH Level</string>
+    <string name="param_ph_unit">pH</string>
+    <string name="param_ph_normal_range">Range: 6.5 - 8.5</string>
+
+    <string name="param_turbidity_title">Turbidity</string>
+    <string name="param_turbidity_unit">NTU</string>
+    <string name="param_turbidity_normal_range">&lt; 5.0 NTU</string>
+
+    <string name="param_tds_title">TDS Level</string>
+    <string name="param_tds_unit">ppm</string>
+    <string name="param_tds_normal_range">&lt; 500 ppm</string>
+
+    <string name="param_temp_title">Temperature</string>
+    <string name="param_temp_unit">°C</string>
+    <string name="param_temp_normal_range">Normal Temp</string>
+
+    <!-- Context & Risk Profile -->
+    <string name="source_risk_title">Source Context &amp; Risk Profile</string>
+    <string name="source_risk_heavy_metals">Heavy Metals Hazard Profile (Mining Area)</string>
+    <string name="source_risk_microbial">Microbial / Pathogen Risk Profile</string>
+    <string name="source_risk_normal">Standard Rural Surface/Ground Source</string>
+    <string name="source_risk_disclaimer">Note: Onboard sensors track physical proxy metrics (pH/TDS/Turbidity). Heavy metals &amp; pathogens require validated media stages (Fe/Mn, Calcite, UF, UV-C) &amp; lab verification.</string>
+
+    <!-- Treatment Overview -->
+    <string name="treatment_summary_title">Treatment Sequence</string>
+    <string name="treatment_summary_active">9-Stage Multi-Barrier Active</string>
+    <string name="treatment_stages_count">PP/Sand → Calcite → Aeration → Fe/Mn → Adsorption → UF → UV-C → Solenoid</string>
+
+    <!-- Demo Controls -->
+    <string name="demo_controls_title">Demo Scenario Switcher</string>
+    <string name="demo_scenario_normal">Normal</string>
+    <string name="demo_scenario_mining">Acidic Mining</string>
+    <string name="demo_scenario_turbidity">High Turbidity</string>
+    <string name="demo_scenario_fault">Sensor Fault</string>
 </resources>
