@@ -1,3 +1,12 @@
+import java.io.FileInputStream
+import java.util.Properties
+
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+}
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
@@ -6,25 +15,54 @@ plugins {
 
 android {
     namespace = "com.jalrakshak.app"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.jalrakshak.app"
         minSdk = 34
         targetSdk = 37
         versionCode = 1
-        versionName = "1.0"
+        versionName = "0.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            if (!keystorePropertiesFile.exists()) {
+                throw GradleException("keystore.properties file is missing! Release builds require a valid keystore.properties configuration.")
+            }
+            val storeFilePath = keystoreProperties.getProperty("storeFile")
+            val storePass = keystoreProperties.getProperty("storePassword")
+            val alias = keystoreProperties.getProperty("keyAlias")
+            val keyPass = keystoreProperties.getProperty("keyPassword")
+
+            if (storeFilePath.isNullOrBlank() || storePass.isNullOrBlank() || alias.isNullOrBlank() || keyPass.isNullOrBlank()) {
+                throw GradleException("keystore.properties is missing required property fields (storeFile, storePassword, keyAlias, keyPassword).")
+            }
+
+            val keyStoreFile = rootProject.file(storeFilePath)
+            if (!keyStoreFile.exists()) {
+                throw GradleException("Keystore file defined in keystore.properties does not exist: ${keyStoreFile.absolutePath}")
+            }
+
+            storeFile = keyStoreFile
+            storePassword = storePass
+            keyAlias = alias
+            keyPassword = keyPass
+        }
+    }
+
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
