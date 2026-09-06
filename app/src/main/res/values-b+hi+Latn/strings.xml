@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JalRakshak</string>
+    <string name="nav_home">Ghar</string>
+    <string name="nav_purification">Shuddhikaran</string>
+    <string name="nav_insights">Jankari</string>
+    <string name="nav_system">System</string>
+
+    <string name="demo_mode_active">DEMO MODE CHALU HAI • ASLI DATA NAHI</string>
+</resources>
