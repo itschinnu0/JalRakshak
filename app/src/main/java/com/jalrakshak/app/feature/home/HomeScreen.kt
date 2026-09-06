@@ -1,5 +1,7 @@
 package com.jalrakshak.app.feature.home
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,7 +18,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,21 +25,21 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jalrakshak.app.R
+import com.jalrakshak.app.core.audio.AndroidSoundManager
 import com.jalrakshak.app.core.design.components.JalRakshakButton
 import com.jalrakshak.app.core.design.components.JalRakshakCard
 import com.jalrakshak.app.core.design.components.StatusChip
+import com.jalrakshak.app.core.haptics.AndroidHapticFeedback
 import com.jalrakshak.app.domain.model.OutletState
 import com.jalrakshak.app.domain.model.SafetyState
 import com.jalrakshak.app.domain.model.SensorReading
 import com.jalrakshak.app.domain.model.SourceRiskProfile
-import com.jalrakshak.app.domain.model.WaterSnapshot
 import com.jalrakshak.app.domain.simulation.SimulationScenario
 import com.jalrakshak.app.ui.theme.JalRakshakTheme
 
@@ -54,6 +55,10 @@ fun HomeScreen(
     val outletState = snapshot?.outletState ?: OutletState.OPEN
     val reading = snapshot?.reading
     val riskProfile = snapshot?.riskProfile ?: SourceRiskProfile()
+
+    val currentView = LocalView.current
+    val hapticFeedback = AndroidHapticFeedback(currentView)
+    val soundManager = AndroidSoundManager()
 
     Box(
         modifier = modifier
@@ -71,7 +76,10 @@ fun HomeScreen(
             SafetyHeroCard(
                 safetyState = safetyState,
                 outletState = outletState,
-                onToggleOutlet = { viewModel.toggleOutlet(it) }
+                onToggleOutlet = {
+                    hapticFeedback.performWarningHaptic()
+                    viewModel.toggleOutlet(it)
+                }
             )
 
             // 2. Sensor Readings Grid
@@ -86,7 +94,13 @@ fun HomeScreen(
             // 5. Demo Scenario Switcher (Judge Controls)
             DemoScenarioSwitcherCard(
                 currentScenario = uiState.currentScenario,
-                onSelectScenario = { viewModel.switchScenario(it) }
+                onSelectScenario = { scenario ->
+                    hapticFeedback.performWarningHaptic()
+                    if (scenario == SimulationScenario.ACIDIC_MINING_WATER || scenario == SimulationScenario.SENSOR_FAULT) {
+                        soundManager.playAlertSound()
+                    }
+                    viewModel.switchScenario(scenario)
+                }
             )
         }
     }
@@ -98,32 +112,26 @@ private fun SafetyHeroCard(
     outletState: OutletState,
     onToggleOutlet: (Boolean) -> Unit
 ) {
-    val (statusColor, titleRes, descRes) = when (safetyState) {
-        SafetyState.NORMAL -> Triple(
-            JalRakshakTheme.safetyColors.normal,
-            R.string.safety_state_normal,
-            R.string.safety_state_normal_desc
-        )
-        SafetyState.WARNING -> Triple(
-            JalRakshakTheme.safetyColors.warning,
-            R.string.safety_state_warning,
-            R.string.safety_state_warning_desc
-        )
-        SafetyState.UNSAFE -> Triple(
-            JalRakshakTheme.safetyColors.unsafe,
-            R.string.safety_state_unsafe,
-            R.string.safety_state_unsafe_desc
-        )
-        SafetyState.SENSOR_FAULT -> Triple(
-            JalRakshakTheme.safetyColors.fault,
-            R.string.safety_state_fault,
-            R.string.safety_state_fault_desc
-        )
-        SafetyState.SYSTEM_OFFLINE -> Triple(
-            JalRakshakTheme.safetyColors.offline,
-            R.string.safety_state_offline,
-            R.string.safety_state_offline_desc
-        )
+    val targetStatusColor = when (safetyState) {
+        SafetyState.NORMAL -> JalRakshakTheme.safetyColors.normal
+        SafetyState.WARNING -> JalRakshakTheme.safetyColors.warning
+        SafetyState.UNSAFE -> JalRakshakTheme.safetyColors.unsafe
+        SafetyState.SENSOR_FAULT -> JalRakshakTheme.safetyColors.fault
+        SafetyState.SYSTEM_OFFLINE -> JalRakshakTheme.safetyColors.offline
+    }
+
+    val statusColor by animateColorAsState(
+        targetValue = targetStatusColor,
+        animationSpec = tween(durationMillis = 400),
+        label = "statusColorAnimation"
+    )
+
+    val (titleRes, descRes) = when (safetyState) {
+        SafetyState.NORMAL -> R.string.safety_state_normal to R.string.safety_state_normal_desc
+        SafetyState.WARNING -> R.string.safety_state_warning to R.string.safety_state_warning_desc
+        SafetyState.UNSAFE -> R.string.safety_state_unsafe to R.string.safety_state_unsafe_desc
+        SafetyState.SENSOR_FAULT -> R.string.safety_state_fault to R.string.safety_state_fault_desc
+        SafetyState.SYSTEM_OFFLINE -> R.string.safety_state_offline to R.string.safety_state_offline_desc
     }
 
     JalRakshakCard(
