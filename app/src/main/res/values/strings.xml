@@ -106,4 +106,16 @@
 
     <string name="stage_10_name">10. Controlled Solenoid Valve</string>
     <string name="stage_10_desc">Fail-safe electromechanical valve that opens for safe water and locks closed instantly during unsafe or fault states.</string>
+
+    <!-- Insights & Analytics Screen Strings -->
+    <string name="insights_title">Water Quality Analytics</string>
+    <string name="insights_subtitle">Historical Trends &amp; Operating Thresholds</string>
+    <string name="insights_param_ph">pH Level</string>
+    <string name="insights_param_turbidity">Turbidity (NTU)</string>
+    <string name="insights_param_tds">TDS (ppm)</string>
+    <string name="insights_param_temp">Temperature (°C)</string>
+    <string name="insights_threshold_label">Operating Threshold: %1$s</string>
+    <string name="insights_summary_title">Parameter Trend &amp; Spec Status</string>
+    <string name="insights_timeline_title">Operational Event Timeline</string>
+    <string name="insights_disclaimer">Note: Analytics display physical proxy trends (pH/TDS/Turbidity/Temp) from local simulation. Lab verification required for specific heavy metals or pathogen counts.</string>
 </resources>

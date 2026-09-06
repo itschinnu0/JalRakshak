@@ -106,4 +106,16 @@
 
     <string name="stage_10_name">10. Controlled Solenoid Valve</string>
     <string name="stage_10_desc">Smart valve jo pani surakshit hone par khulta hai aur asurakshit hone par turant BAND ho jata hai.</string>
+
+    <!-- Insights & Analytics Screen Strings -->
+    <string name="insights_title">Pani Quality Analytics</string>
+    <string name="insights_subtitle">Purana History Data aur Operating Range</string>
+    <string name="insights_param_ph">pH Level</string>
+    <string name="insights_param_turbidity">Turbidity (NTU)</string>
+    <string name="insights_param_tds">TDS (ppm)</string>
+    <string name="insights_param_temp">Tapman (°C)</string>
+    <string name="insights_threshold_label">Operating Threshold: %1$s</string>
+    <string name="insights_summary_title">Parameter Trend aur Range Jankari</string>
+    <string name="insights_timeline_title">Operational Event Timeline</string>
+    <string name="insights_disclaimer">Note: Analytics pH/TDS/Turbidity/Temp ka simulation trend dikhata hai. Heavy metals ke liye lab test zaroori hai.</string>
 </resources>
