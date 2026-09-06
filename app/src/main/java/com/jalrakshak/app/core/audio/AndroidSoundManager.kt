@@ -21,4 +21,13 @@ class AndroidSoundManager : SoundManager {
             // Safe fallback
         }
     }
+
+    override fun release() {
+        try {
+            toneGenerator?.release()
+            toneGenerator = null
+        } catch (_: Exception) {
+            // Safe fallback
+        }
+    }
 }

@@ -21,8 +21,10 @@ import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalView
@@ -57,8 +59,14 @@ fun HomeScreen(
     val riskProfile = snapshot?.riskProfile ?: SourceRiskProfile()
 
     val currentView = LocalView.current
-    val hapticFeedback = AndroidHapticFeedback(currentView)
-    val soundManager = AndroidSoundManager()
+    val hapticFeedback = remember(currentView) { AndroidHapticFeedback(currentView) }
+    val soundManager = remember { AndroidSoundManager() }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            soundManager.release()
+        }
+    }
 
     Box(
         modifier = modifier

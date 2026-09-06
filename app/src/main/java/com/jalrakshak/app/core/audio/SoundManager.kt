@@ -1,8 +1,9 @@
 package com.jalrakshak.app.core.audio
 
 /**
- * Placeholder for SoundPool/audio management in later phases.
+ * Interface for SoundPool/audio management abstractions.
  */
 interface SoundManager {
     fun playAlertSound()
+    fun release() {}
 }
