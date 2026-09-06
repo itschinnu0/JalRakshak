@@ -9,5 +9,6 @@ enum class TreatmentStage {
     ADSORPTION,
     UF,
     UV_C,
-    OUTLET_MONITORING
+    OUTLET_MONITORING,
+    CONTROLLED_SOLENOID
 }
