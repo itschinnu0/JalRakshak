@@ -1,6 +1,6 @@
-# JalRakshak — Final Coding Agent Pack
+# AquaVeda — Final Coding Agent Pack
 
-This package contains the final phase-based implementation instructions for the JalRakshak Android hackathon application.
+This package contains the final phase-based implementation instructions for the AquaVeda Android hackathon application.
 
 Start with:
 1. `AGENTS.md`

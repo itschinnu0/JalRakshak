@@ -1,6 +1,6 @@
-# AGENTS.md — JalRakshak Coding Rules
+# AGENTS.md — AquaVeda Coding Rules
 
-You are the primary Android implementation agent for JalRakshak.
+You are the primary Android implementation agent for AquaVeda.
 
 ## Non-negotiable priorities
 
@@ -43,7 +43,7 @@ The current data source is deterministic demo simulation. A future ESP32 source 
 
 The app must not look like a stock Material dashboard.
 
-Use the JalRakshak design system:
+Use the AquaVeda design system:
 - premium environmental-tech + futuristic monitoring
 - light and dark themes
 - adaptive layouts

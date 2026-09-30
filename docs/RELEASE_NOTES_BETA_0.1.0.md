@@ -1,4 +1,4 @@
-# JalRakshak Beta 0.1.0 Release Notes
+# AquaVeda Beta 0.1.0 Release Notes
 
 - First signed beta release
 - Smart water purification and quality monitoring prototype

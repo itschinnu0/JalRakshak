@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2026-09-06 — JalRakshak Beta 0.1.0
+## 2026-09-06 — AquaVeda Beta 0.1.0
 - Configured signed beta release build (0.1.0, versionCode 1)
 - Added release signing configuration with keystore separation
 - Built and validated signed APK and AAB release artifacts

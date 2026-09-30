@@ -4,7 +4,7 @@
 Create the reusable premium visual language and adaptive app shell.
 
 ## Implement
-- light/dark JalRakshak theme
+- light/dark AquaVeda theme
 - typography, spacing, shapes, semantic safety colors
 - reusable cards/surfaces/buttons/status components
 - adaptive scaffold

@@ -1,10 +1,10 @@
 # Phase 00 — Project, Git & AI Agent Setup
 
 ## Objective
-Create a clean Android Studio baseline and configure the AI Coding Agent without implementing JalRakshak features.
+Create a clean Android Studio baseline and configure the AI Coding Agent without implementing AquaVeda features.
 
 ## Tasks
-- Android project: `JalRakshak`
+- Android project: `AquaVeda`
 - Package: `com.jalrakshak.app`
 - Kotlin + Jetpack Compose + Kotlin DSL
 - minSdk 34, compileSdk 37, targetSdk 37

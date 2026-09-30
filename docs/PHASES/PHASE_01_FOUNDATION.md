@@ -1,7 +1,7 @@
 # Phase 01 — Foundation & Architecture
 
 ## Objective
-Establish the JalRakshak architecture without implementing feature screens.
+Establish the AquaVeda architecture without implementing feature screens.
 
 ## Implement
 - package structure
