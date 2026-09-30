@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.jalrakshak.app.domain.model.SafetyState
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
 fun StatusChip(
@@ -18,17 +18,17 @@ fun StatusChip(
     modifier: Modifier = Modifier
 ) {
     val (color, label) = when (state) {
-        SafetyState.NORMAL -> JalRakshakTheme.safetyColors.normal to "NORMAL"
-        SafetyState.WARNING -> JalRakshakTheme.safetyColors.warning to "WARNING"
-        SafetyState.UNSAFE -> JalRakshakTheme.safetyColors.unsafe to "UNSAFE"
-        SafetyState.SENSOR_FAULT -> JalRakshakTheme.safetyColors.fault to "FAULT"
-        SafetyState.SYSTEM_OFFLINE -> JalRakshakTheme.safetyColors.offline to "OFFLINE"
+        SafetyState.NORMAL -> AquaVedaTheme.safetyColors.normal to "NORMAL"
+        SafetyState.WARNING -> AquaVedaTheme.safetyColors.warning to "WARNING"
+        SafetyState.UNSAFE -> AquaVedaTheme.safetyColors.unsafe to "UNSAFE"
+        SafetyState.SENSOR_FAULT -> AquaVedaTheme.safetyColors.fault to "FAULT"
+        SafetyState.SYSTEM_OFFLINE -> AquaVedaTheme.safetyColors.offline to "OFFLINE"
     }
 
     Box(
         modifier = modifier
             .background(color = color.copy(alpha = 0.15f), shape = MaterialTheme.shapes.small)
-            .padding(horizontal = JalRakshakTheme.spacing.small, vertical = JalRakshakTheme.spacing.extraSmall),
+            .padding(horizontal = AquaVedaTheme.spacing.small, vertical = AquaVedaTheme.spacing.extraSmall),
         contentAlignment = Alignment.Center
     ) {
         Text(

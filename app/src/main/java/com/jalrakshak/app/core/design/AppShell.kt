@@ -21,10 +21,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.jalrakshak.app.R
 import com.jalrakshak.app.core.design.components.DemoModeBanner
-import com.jalrakshak.app.core.design.components.JalRakshakLogo
-import com.jalrakshak.app.core.navigation.JalRakshakNavGraph
+import com.jalrakshak.app.core.design.components.AquaVedaLogo
+import com.jalrakshak.app.core.navigation.AquaVedaNavGraph
 import com.jalrakshak.app.core.navigation.Route
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
 fun AppShell() {
@@ -78,12 +78,12 @@ fun AppShell() {
                     .fillMaxWidth()
                     .statusBarsPadding()
                     .padding(
-                        horizontal = JalRakshakTheme.spacing.medium,
-                        vertical = JalRakshakTheme.spacing.small
+                        horizontal = AquaVedaTheme.spacing.medium,
+                        vertical = AquaVedaTheme.spacing.small
                     ),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                JalRakshakLogo(showWordmark = true)
+                AquaVedaLogo(showWordmark = true)
             }
 
             AnimatedVisibility(visible = true) {
@@ -91,7 +91,7 @@ fun AppShell() {
             }
 
             Box(modifier = Modifier.weight(1f)) {
-                JalRakshakNavGraph(backStack = backStack)
+                AquaVedaNavGraph(backStack = backStack)
             }
         }
     }
@@ -100,7 +100,7 @@ fun AppShell() {
 @Preview(showBackground = true)
 @Composable
 private fun AppShellPreview() {
-    JalRakshakTheme {
+    AquaVedaTheme {
         AppShell()
     }
 }

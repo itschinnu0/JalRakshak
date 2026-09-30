@@ -5,7 +5,7 @@ import android.view.View
 
 class AndroidHapticFeedback(
     private val view: View? = null
-) : JalRakshakHapticFeedback {
+) : AquaVedaHapticFeedback {
 
     override fun performWarningHaptic() {
         try {

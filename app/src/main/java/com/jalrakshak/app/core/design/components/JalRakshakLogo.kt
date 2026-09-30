@@ -17,10 +17,10 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
-fun JalRakshakLogo(
+fun AquaVedaLogo(
     modifier: Modifier = Modifier,
     iconSize: Dp = 28.dp,
     showWordmark: Boolean = true
@@ -94,9 +94,9 @@ fun JalRakshakLogo(
         }
 
         if (showWordmark) {
-            Spacer(modifier = Modifier.width(JalRakshakTheme.spacing.small))
+            Spacer(modifier = Modifier.width(AquaVedaTheme.spacing.small))
             Text(
-                text = "JalRakshak",
+                text = "AquaVeda",
                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
                 color = MaterialTheme.colorScheme.onSurface
             )

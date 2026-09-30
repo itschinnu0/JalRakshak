@@ -14,21 +14,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import com.jalrakshak.app.R
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
 fun DemoModeBanner(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(JalRakshakTheme.safetyColors.warning.copy(alpha = 0.2f))
-            .padding(vertical = JalRakshakTheme.spacing.extraSmall),
+            .background(AquaVedaTheme.safetyColors.warning.copy(alpha = 0.2f))
+            .padding(vertical = AquaVedaTheme.spacing.extraSmall),
         contentAlignment = Alignment.Center
     ) {
         Text(
             text = stringResource(R.string.demo_mode_active),
             style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-            color = JalRakshakTheme.safetyColors.warning,
+            color = AquaVedaTheme.safetyColors.warning,
             textAlign = TextAlign.Center
         )
     }

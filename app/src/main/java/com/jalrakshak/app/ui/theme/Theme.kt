@@ -70,7 +70,7 @@ val LocalSafetyColors = staticCompositionLocalOf {
 }
 
 @Composable
-fun JalRakshakTheme(
+fun AquaVedaTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+, but for premium app feel we prefer our custom tech colors.
     dynamicColor: Boolean = false,
@@ -111,13 +111,13 @@ fun JalRakshakTheme(
         MaterialTheme(
             colorScheme = colorScheme,
             typography = Typography,
-            shapes = JalRakshakShapes,
+            shapes = AquaVedaShapes,
             content = content
         )
     }
 }
 
-object JalRakshakTheme {
+object AquaVedaTheme {
     val safetyColors: SafetyColors
         @Composable
         get() = LocalSafetyColors.current

@@ -36,12 +36,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jalrakshak.app.R
-import com.jalrakshak.app.core.design.components.JalRakshakCard
+import com.jalrakshak.app.core.design.components.AquaVedaCard
 import com.jalrakshak.app.core.design.components.StatusChip
 import com.jalrakshak.app.domain.model.OutletState
 import com.jalrakshak.app.domain.model.SafetyState
 import com.jalrakshak.app.domain.model.WaterSnapshot
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
 fun InsightsScreen(
@@ -55,14 +55,14 @@ fun InsightsScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .padding(horizontal = JalRakshakTheme.spacing.medium)
+            .padding(horizontal = AquaVedaTheme.spacing.medium)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(vertical = JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.medium)
+                .padding(vertical = AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.medium)
         ) {
             // Header
             Text(
@@ -110,8 +110,8 @@ private fun ParameterSelectorTabs(
     onSelectParameter: (AnalyticsParameter) -> Unit
 ) {
     FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small),
-        verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.extraSmall)
+        horizontalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small),
+        verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.extraSmall)
     ) {
         AnalyticsParameter.entries.forEach { param ->
             val label = when (param) {
@@ -153,15 +153,15 @@ private fun ParameterTrendCard(
     val latestValue = points.lastOrNull()?.second
     val isOutOfSpec = latestValue?.let { it < minThreshold || it > maxThreshold } ?: false
 
-    JalRakshakCard(
+    AquaVedaCard(
         modifier = Modifier.fillMaxWidth(),
-        borderColor = if (isOutOfSpec) JalRakshakTheme.safetyColors.warning else MaterialTheme.colorScheme.primary
+        borderColor = if (isOutOfSpec) AquaVedaTheme.safetyColors.warning else MaterialTheme.colorScheme.primary
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -177,7 +177,7 @@ private fun ParameterTrendCard(
                 Text(
                     text = latestValue?.let { "Latest: %.1f %s".format(it, unit) } ?: "No Data",
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                    color = if (isOutOfSpec) JalRakshakTheme.safetyColors.warning else JalRakshakTheme.safetyColors.normal
+                    color = if (isOutOfSpec) AquaVedaTheme.safetyColors.warning else AquaVedaTheme.safetyColors.normal
                 )
             }
 
@@ -187,7 +187,7 @@ private fun ParameterTrendCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
-            Spacer(modifier = Modifier.height(JalRakshakTheme.spacing.small))
+            Spacer(modifier = Modifier.height(AquaVedaTheme.spacing.small))
 
             // Canvas Line Chart with Threshold Indicators
             TrendLineChart(
@@ -210,7 +210,7 @@ private fun TrendLineChart(
     modifier: Modifier = Modifier
 ) {
     val primaryColor = MaterialTheme.colorScheme.primary
-    val warningColor = JalRakshakTheme.safetyColors.warning
+    val warningColor = AquaVedaTheme.safetyColors.warning
 
     Box(modifier = modifier) {
         Canvas(modifier = Modifier.fillMaxSize()) {
@@ -303,12 +303,12 @@ private fun AccessibleTrendSummaryCard(
     val minVal = values.minOrNull() ?: 0.0f
     val maxVal = values.maxOrNull() ?: 0.0f
 
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.extraSmall)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.extraSmall)
         ) {
             Text(
                 text = stringResource(R.string.insights_summary_title),
@@ -339,12 +339,12 @@ private fun AccessibleTrendSummaryCard(
 
 @Composable
 private fun OperationalEventTimelineCard(history: List<WaterSnapshot>) {
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Text(
                 text = stringResource(R.string.insights_timeline_title),
@@ -364,16 +364,16 @@ private fun OperationalEventTimelineCard(history: List<WaterSnapshot>) {
                                 .size(8.dp)
                                 .background(
                                     color = when (snapshot.safetyState) {
-                                        SafetyState.NORMAL -> JalRakshakTheme.safetyColors.normal
-                                        SafetyState.WARNING -> JalRakshakTheme.safetyColors.warning
-                                        SafetyState.UNSAFE -> JalRakshakTheme.safetyColors.unsafe
-                                        SafetyState.SENSOR_FAULT -> JalRakshakTheme.safetyColors.fault
-                                        SafetyState.SYSTEM_OFFLINE -> JalRakshakTheme.safetyColors.offline
+                                        SafetyState.NORMAL -> AquaVedaTheme.safetyColors.normal
+                                        SafetyState.WARNING -> AquaVedaTheme.safetyColors.warning
+                                        SafetyState.UNSAFE -> AquaVedaTheme.safetyColors.unsafe
+                                        SafetyState.SENSOR_FAULT -> AquaVedaTheme.safetyColors.fault
+                                        SafetyState.SYSTEM_OFFLINE -> AquaVedaTheme.safetyColors.offline
                                     },
                                     shape = CircleShape
                                 )
                         )
-                        Spacer(modifier = Modifier.width(JalRakshakTheme.spacing.small))
+                        Spacer(modifier = Modifier.width(AquaVedaTheme.spacing.small))
                         Text(
                             text = "Sample #${history.size - index}",
                             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Medium),
@@ -383,11 +383,11 @@ private fun OperationalEventTimelineCard(history: List<WaterSnapshot>) {
 
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         StatusChip(state = snapshot.safetyState)
-                        Spacer(modifier = Modifier.width(JalRakshakTheme.spacing.small))
+                        Spacer(modifier = Modifier.width(AquaVedaTheme.spacing.small))
                         Text(
                             text = if (snapshot.outletState == OutletState.OPEN) "OPEN" else "LOCKED",
                             style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                            color = if (snapshot.outletState == OutletState.OPEN) JalRakshakTheme.safetyColors.normal else JalRakshakTheme.safetyColors.unsafe
+                            color = if (snapshot.outletState == OutletState.OPEN) AquaVedaTheme.safetyColors.normal else AquaVedaTheme.safetyColors.unsafe
                         )
                     }
                 }
@@ -398,8 +398,8 @@ private fun OperationalEventTimelineCard(history: List<WaterSnapshot>) {
 
 @Composable
 private fun DisclaimerCard() {
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
-        Box(modifier = Modifier.padding(JalRakshakTheme.spacing.medium)) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
+        Box(modifier = Modifier.padding(AquaVedaTheme.spacing.medium)) {
             Text(
                 text = stringResource(R.string.insights_disclaimer),
                 style = MaterialTheme.typography.labelSmall,

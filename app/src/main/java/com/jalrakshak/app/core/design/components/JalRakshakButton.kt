@@ -8,10 +8,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
-fun JalRakshakButton(
+fun AquaVedaButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -31,8 +31,8 @@ fun JalRakshakButton(
             disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
         ),
         contentPadding = PaddingValues(
-            horizontal = JalRakshakTheme.spacing.large,
-            vertical = JalRakshakTheme.spacing.medium
+            horizontal = AquaVedaTheme.spacing.large,
+            vertical = AquaVedaTheme.spacing.medium
         )
     ) {
         Text(

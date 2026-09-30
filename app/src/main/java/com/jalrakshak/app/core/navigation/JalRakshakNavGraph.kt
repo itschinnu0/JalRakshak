@@ -11,10 +11,10 @@ import com.jalrakshak.app.feature.purification.PurificationScreen
 import com.jalrakshak.app.feature.system.SystemScreen
 
 /**
- * Navigation 3 foundation for the JalRakshak app shell.
+ * Navigation 3 foundation for the AquaVeda app shell.
  */
 @Composable
-fun JalRakshakNavGraph(
+fun AquaVedaNavGraph(
     backStack: MutableList<Any>,
     modifier: Modifier = Modifier
 ) {

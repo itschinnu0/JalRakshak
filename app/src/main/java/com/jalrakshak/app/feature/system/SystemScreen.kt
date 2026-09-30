@@ -27,12 +27,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jalrakshak.app.R
-import com.jalrakshak.app.core.design.components.JalRakshakCard
+import com.jalrakshak.app.core.design.components.AquaVedaCard
 import com.jalrakshak.app.core.design.components.StatusChip
 import com.jalrakshak.app.domain.model.OutletState
 import com.jalrakshak.app.domain.model.SafetyState
 import com.jalrakshak.app.domain.simulation.SimulationScenario
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
 fun SystemScreen(
@@ -49,14 +49,14 @@ fun SystemScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .padding(horizontal = JalRakshakTheme.spacing.medium)
+            .padding(horizontal = AquaVedaTheme.spacing.medium)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(vertical = JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.medium)
+                .padding(vertical = AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.medium)
         ) {
             // Header
             Text(
@@ -105,17 +105,17 @@ private fun ActiveAlertCard(
     outletState: OutletState
 ) {
     val statusColor = when (safetyState) {
-        SafetyState.NORMAL -> JalRakshakTheme.safetyColors.normal
-        SafetyState.WARNING -> JalRakshakTheme.safetyColors.warning
-        SafetyState.UNSAFE -> JalRakshakTheme.safetyColors.unsafe
-        SafetyState.SENSOR_FAULT -> JalRakshakTheme.safetyColors.fault
-        SafetyState.SYSTEM_OFFLINE -> JalRakshakTheme.safetyColors.offline
+        SafetyState.NORMAL -> AquaVedaTheme.safetyColors.normal
+        SafetyState.WARNING -> AquaVedaTheme.safetyColors.warning
+        SafetyState.UNSAFE -> AquaVedaTheme.safetyColors.unsafe
+        SafetyState.SENSOR_FAULT -> AquaVedaTheme.safetyColors.fault
+        SafetyState.SYSTEM_OFFLINE -> AquaVedaTheme.safetyColors.offline
     }
 
     val (what, why, action) = when (safetyState) {
         SafetyState.NORMAL -> Triple(
             "Water parameters inside normal threshold",
-            "Monitored pH, Turbidity, TDS, and Temp meet JalRakshak rules",
+            "Monitored pH, Turbidity, TDS, and Temp meet AquaVeda rules",
             if (outletState == OutletState.OPEN) "Solenoid valve OPEN for distribution" else "Solenoid valve CLOSED by manual command"
         )
         SafetyState.WARNING -> Triple(
@@ -140,15 +140,15 @@ private fun ActiveAlertCard(
         )
     }
 
-    JalRakshakCard(
+    AquaVedaCard(
         modifier = Modifier.fillMaxWidth(),
         borderColor = statusColor
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -186,12 +186,12 @@ private fun ActiveAlertCard(
 
 @Composable
 private fun HardwareSpecCard() {
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Text(
                 text = stringResource(R.string.system_card_power_title),
@@ -204,7 +204,7 @@ private fun HardwareSpecCard() {
                 color = MaterialTheme.colorScheme.onSurface
             )
 
-            Spacer(modifier = Modifier.height(JalRakshakTheme.spacing.extraSmall))
+            Spacer(modifier = Modifier.height(AquaVedaTheme.spacing.extraSmall))
 
             Text(
                 text = stringResource(R.string.system_card_controller_title),
@@ -232,12 +232,12 @@ private fun SensorDiagnosticsGrid(
 ) {
     val isPhFault = safetyState == SafetyState.SENSOR_FAULT || currentScenario == SimulationScenario.SENSOR_FAULT
 
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Text(
                 text = stringResource(R.string.system_sensor_health_title),
@@ -257,7 +257,7 @@ private fun SensorDiagnosticsGrid(
                 Text(
                     text = if (isPhFault) stringResource(R.string.system_sensor_status_fault) else stringResource(R.string.system_sensor_status_online),
                     style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                    color = if (isPhFault) JalRakshakTheme.safetyColors.fault else JalRakshakTheme.safetyColors.normal
+                    color = if (isPhFault) AquaVedaTheme.safetyColors.fault else AquaVedaTheme.safetyColors.normal
                 )
             }
 
@@ -273,7 +273,7 @@ private fun SensorDiagnosticsGrid(
                 Text(
                     text = stringResource(R.string.system_sensor_status_online),
                     style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                    color = JalRakshakTheme.safetyColors.normal
+                    color = AquaVedaTheme.safetyColors.normal
                 )
             }
 
@@ -289,7 +289,7 @@ private fun SensorDiagnosticsGrid(
                 Text(
                     text = stringResource(R.string.system_sensor_status_online),
                     style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                    color = JalRakshakTheme.safetyColors.normal
+                    color = AquaVedaTheme.safetyColors.normal
                 )
             }
 
@@ -305,7 +305,7 @@ private fun SensorDiagnosticsGrid(
                 Text(
                     text = stringResource(R.string.system_sensor_status_online),
                     style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                    color = JalRakshakTheme.safetyColors.normal
+                    color = AquaVedaTheme.safetyColors.normal
                 )
             }
         }
@@ -320,12 +320,12 @@ private fun DemoScenarioCard(
     onSelectScenario: (SimulationScenario) -> Unit,
     onToggleOffline: (Boolean) -> Unit
 ) {
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Text(
                 text = stringResource(R.string.demo_controls_title),
@@ -334,8 +334,8 @@ private fun DemoScenarioCard(
             )
 
             FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small),
-                verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.extraSmall)
+                horizontalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small),
+                verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.extraSmall)
             ) {
                 FilterChip(
                     selected = !isOffline && currentScenario == SimulationScenario.NORMAL,
@@ -378,8 +378,8 @@ private fun DemoScenarioCard(
                     onClick = { onToggleOffline(!isOffline) },
                     label = { Text("Simulate System Offline") },
                     colors = FilterChipDefaults.filterChipColors(
-                        selectedContainerColor = JalRakshakTheme.safetyColors.offline.copy(alpha = 0.3f),
-                        selectedLabelColor = JalRakshakTheme.safetyColors.offline
+                        selectedContainerColor = AquaVedaTheme.safetyColors.offline.copy(alpha = 0.3f),
+                        selectedLabelColor = AquaVedaTheme.safetyColors.offline
                     )
                 )
             }
@@ -389,12 +389,12 @@ private fun DemoScenarioCard(
 
 @Composable
 private fun LimitationsCard() {
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Text(
                 text = stringResource(R.string.system_limitations_title),

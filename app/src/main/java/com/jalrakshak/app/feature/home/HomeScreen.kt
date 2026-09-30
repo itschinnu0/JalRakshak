@@ -34,8 +34,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jalrakshak.app.R
 import com.jalrakshak.app.core.audio.AndroidSoundManager
-import com.jalrakshak.app.core.design.components.JalRakshakButton
-import com.jalrakshak.app.core.design.components.JalRakshakCard
+import com.jalrakshak.app.core.design.components.AquaVedaButton
+import com.jalrakshak.app.core.design.components.AquaVedaCard
 import com.jalrakshak.app.core.design.components.StatusChip
 import com.jalrakshak.app.core.haptics.AndroidHapticFeedback
 import com.jalrakshak.app.domain.model.OutletState
@@ -43,7 +43,7 @@ import com.jalrakshak.app.domain.model.SafetyState
 import com.jalrakshak.app.domain.model.SensorReading
 import com.jalrakshak.app.domain.model.SourceRiskProfile
 import com.jalrakshak.app.domain.simulation.SimulationScenario
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
 fun HomeScreen(
@@ -71,14 +71,14 @@ fun HomeScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .padding(horizontal = JalRakshakTheme.spacing.medium)
+            .padding(horizontal = AquaVedaTheme.spacing.medium)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(vertical = JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.medium)
+                .padding(vertical = AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.medium)
         ) {
             // 1. Safety Hero Header & Outlet Status
             SafetyHeroCard(
@@ -121,11 +121,11 @@ private fun SafetyHeroCard(
     onToggleOutlet: (Boolean) -> Unit
 ) {
     val targetStatusColor = when (safetyState) {
-        SafetyState.NORMAL -> JalRakshakTheme.safetyColors.normal
-        SafetyState.WARNING -> JalRakshakTheme.safetyColors.warning
-        SafetyState.UNSAFE -> JalRakshakTheme.safetyColors.unsafe
-        SafetyState.SENSOR_FAULT -> JalRakshakTheme.safetyColors.fault
-        SafetyState.SYSTEM_OFFLINE -> JalRakshakTheme.safetyColors.offline
+        SafetyState.NORMAL -> AquaVedaTheme.safetyColors.normal
+        SafetyState.WARNING -> AquaVedaTheme.safetyColors.warning
+        SafetyState.UNSAFE -> AquaVedaTheme.safetyColors.unsafe
+        SafetyState.SENSOR_FAULT -> AquaVedaTheme.safetyColors.fault
+        SafetyState.SYSTEM_OFFLINE -> AquaVedaTheme.safetyColors.offline
     }
 
     val statusColor by animateColorAsState(
@@ -142,15 +142,15 @@ private fun SafetyHeroCard(
         SafetyState.SYSTEM_OFFLINE -> R.string.safety_state_offline to R.string.safety_state_offline_desc
     }
 
-    JalRakshakCard(
+    AquaVedaCard(
         modifier = Modifier.fillMaxWidth(),
         borderColor = statusColor
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -165,7 +165,7 @@ private fun SafetyHeroCard(
                     else
                         stringResource(R.string.outlet_status_closed),
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                    color = if (outletState == OutletState.OPEN) JalRakshakTheme.safetyColors.normal else JalRakshakTheme.safetyColors.unsafe
+                    color = if (outletState == OutletState.OPEN) AquaVedaTheme.safetyColors.normal else AquaVedaTheme.safetyColors.unsafe
                 )
             }
 
@@ -181,7 +181,7 @@ private fun SafetyHeroCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
-            Spacer(modifier = Modifier.height(JalRakshakTheme.spacing.extraSmall))
+            Spacer(modifier = Modifier.height(AquaVedaTheme.spacing.extraSmall))
 
             val isLockedBySafety = safetyState == SafetyState.UNSAFE || safetyState == SafetyState.SENSOR_FAULT || safetyState == SafetyState.SYSTEM_OFFLINE
 
@@ -194,7 +194,7 @@ private fun SafetyHeroCard(
                     Text(
                         text = stringResource(R.string.outlet_locked_safety_reason),
                         style = MaterialTheme.typography.labelSmall,
-                        color = JalRakshakTheme.safetyColors.unsafe,
+                        color = AquaVedaTheme.safetyColors.unsafe,
                         modifier = Modifier.weight(1f)
                     )
                 } else {
@@ -203,17 +203,17 @@ private fun SafetyHeroCard(
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurface
                     )
-                    Spacer(modifier = Modifier.width(JalRakshakTheme.spacing.small))
-                    JalRakshakButton(
+                    Spacer(modifier = Modifier.width(AquaVedaTheme.spacing.small))
+                    AquaVedaButton(
                         text = if (outletState == OutletState.OPEN)
                             stringResource(R.string.outlet_action_close)
                         else
                             stringResource(R.string.outlet_action_open),
                         onClick = { onToggleOutlet(outletState != OutletState.OPEN) },
                         containerColor = if (outletState == OutletState.OPEN)
-                            JalRakshakTheme.safetyColors.unsafe
+                            AquaVedaTheme.safetyColors.unsafe
                         else
-                            JalRakshakTheme.safetyColors.normal
+                            AquaVedaTheme.safetyColors.normal
                     )
                 }
             }
@@ -225,7 +225,7 @@ private fun SafetyHeroCard(
 private fun SensorReadingsSection(reading: SensorReading?) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+        horizontalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
     ) {
         SensorCard(
             title = stringResource(R.string.param_ph_title),
@@ -247,7 +247,7 @@ private fun SensorReadingsSection(reading: SensorReading?) {
 
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+        horizontalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
     ) {
         SensorCard(
             title = stringResource(R.string.param_tds_title),
@@ -277,16 +277,16 @@ private fun SensorCard(
     isOutSpec: Boolean,
     modifier: Modifier = Modifier
 ) {
-    val accentColor = if (isOutSpec) JalRakshakTheme.safetyColors.warning else MaterialTheme.colorScheme.primary
+    val accentColor = if (isOutSpec) AquaVedaTheme.safetyColors.warning else MaterialTheme.colorScheme.primary
 
-    JalRakshakCard(
+    AquaVedaCard(
         modifier = modifier,
         borderColor = if (isOutSpec) accentColor else null
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium)
+                .padding(AquaVedaTheme.spacing.medium)
         ) {
             Text(
                 text = title,
@@ -294,7 +294,7 @@ private fun SensorCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
-            Spacer(modifier = Modifier.height(JalRakshakTheme.spacing.extraSmall))
+            Spacer(modifier = Modifier.height(AquaVedaTheme.spacing.extraSmall))
 
             Row(verticalAlignment = Alignment.Bottom) {
                 Text(
@@ -311,7 +311,7 @@ private fun SensorCard(
                 )
             }
 
-            Spacer(modifier = Modifier.height(JalRakshakTheme.spacing.extraSmall))
+            Spacer(modifier = Modifier.height(AquaVedaTheme.spacing.extraSmall))
 
             Text(
                 text = subtitle,
@@ -324,12 +324,12 @@ private fun SensorCard(
 
 @Composable
 private fun SourceRiskProfileCard(riskProfile: SourceRiskProfile) {
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Text(
                 text = stringResource(R.string.source_risk_title),
@@ -360,12 +360,12 @@ private fun SourceRiskProfileCard(riskProfile: SourceRiskProfile) {
 
 @Composable
 private fun TreatmentSummaryCard() {
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.extraSmall)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.extraSmall)
         ) {
             Text(
                 text = stringResource(R.string.treatment_summary_title),
@@ -394,12 +394,12 @@ private fun DemoScenarioSwitcherCard(
     currentScenario: SimulationScenario,
     onSelectScenario: (SimulationScenario) -> Unit
 ) {
-    JalRakshakCard(modifier = Modifier.fillMaxWidth()) {
+    AquaVedaCard(modifier = Modifier.fillMaxWidth()) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Text(
                 text = stringResource(R.string.demo_controls_title),
@@ -408,8 +408,8 @@ private fun DemoScenarioSwitcherCard(
             )
 
             FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small),
-                verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.extraSmall)
+                horizontalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small),
+                verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.extraSmall)
             ) {
                 ScenarioChip(
                     label = stringResource(R.string.demo_scenario_normal),

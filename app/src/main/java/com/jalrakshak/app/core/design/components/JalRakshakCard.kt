@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
-fun JalRakshakCard(
+fun AquaVedaCard(
     modifier: Modifier = Modifier,
     borderColor: Color? = null,
     content: @Composable ColumnScope.() -> Unit

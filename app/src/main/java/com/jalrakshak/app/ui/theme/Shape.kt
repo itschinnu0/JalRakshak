@@ -5,7 +5,7 @@ import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
 
 // Tech-inspired shapes: slightly rounded corners, not fully pill-shaped.
-val JalRakshakShapes = Shapes(
+val AquaVedaShapes = Shapes(
     small = RoundedCornerShape(4.dp),
     medium = RoundedCornerShape(8.dp),
     large = RoundedCornerShape(16.dp),

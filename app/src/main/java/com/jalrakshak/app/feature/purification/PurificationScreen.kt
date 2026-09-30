@@ -30,12 +30,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jalrakshak.app.R
-import com.jalrakshak.app.core.design.components.JalRakshakCard
+import com.jalrakshak.app.core.design.components.AquaVedaCard
 import com.jalrakshak.app.core.design.components.StatusChip
 import com.jalrakshak.app.domain.model.OutletState
 import com.jalrakshak.app.domain.model.SafetyState
 import com.jalrakshak.app.domain.model.TreatmentStage
-import com.jalrakshak.app.ui.theme.JalRakshakTheme
+import com.jalrakshak.app.ui.theme.AquaVedaTheme
 
 @Composable
 fun PurificationScreen(
@@ -51,14 +51,14 @@ fun PurificationScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .padding(horizontal = JalRakshakTheme.spacing.medium)
+            .padding(horizontal = AquaVedaTheme.spacing.medium)
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(vertical = JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.medium)
+                .padding(vertical = AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.medium)
         ) {
             // Header
             Text(
@@ -104,15 +104,15 @@ private fun StageDetailCard(
 ) {
     val (stageNum, nameRes, descRes) = getStageResources(stage)
 
-    JalRakshakCard(
+    AquaVedaCard(
         modifier = Modifier.fillMaxWidth(),
         borderColor = MaterialTheme.colorScheme.primary
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(JalRakshakTheme.spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(JalRakshakTheme.spacing.small)
+                .padding(AquaVedaTheme.spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(AquaVedaTheme.spacing.small)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -135,9 +135,9 @@ private fun StageDetailCard(
                             stringResource(R.string.outlet_status_closed),
                         style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
                         color = if (outletState == OutletState.OPEN)
-                            JalRakshakTheme.safetyColors.normal
+                            AquaVedaTheme.safetyColors.normal
                         else
-                            JalRakshakTheme.safetyColors.unsafe
+                            AquaVedaTheme.safetyColors.unsafe
                     )
                 }
             }
@@ -203,7 +203,7 @@ private fun PipelineNodeItem(
     val borderColor = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
     val containerColor = if (isSelected) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f) else MaterialTheme.colorScheme.surface
 
-    JalRakshakCard(
+    AquaVedaCard(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
@@ -213,7 +213,7 @@ private fun PipelineNodeItem(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(containerColor)
-                .padding(JalRakshakTheme.spacing.medium),
+                .padding(AquaVedaTheme.spacing.medium),
             verticalAlignment = Alignment.CenterVertically
         ) {
             // Stage Number Badge
@@ -233,7 +233,7 @@ private fun PipelineNodeItem(
                 )
             }
 
-            Spacer(modifier = Modifier.width(JalRakshakTheme.spacing.medium))
+            Spacer(modifier = Modifier.width(AquaVedaTheme.spacing.medium))
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
@@ -251,12 +251,12 @@ private fun PipelineNodeItem(
                 TreatmentStage.CONTROLLED_SOLENOID -> Text(
                     text = if (outletState == OutletState.OPEN) "OPEN" else "LOCKED",
                     style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                    color = if (outletState == OutletState.OPEN) JalRakshakTheme.safetyColors.normal else JalRakshakTheme.safetyColors.unsafe
+                    color = if (outletState == OutletState.OPEN) AquaVedaTheme.safetyColors.normal else AquaVedaTheme.safetyColors.unsafe
                 )
                 else -> Text(
                     text = "ACTIVE",
                     style = MaterialTheme.typography.labelSmall,
-                    color = JalRakshakTheme.safetyColors.normal
+                    color = AquaVedaTheme.safetyColors.normal
                 )
             }
         }
